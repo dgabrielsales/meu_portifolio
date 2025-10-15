@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Gabriel Sales</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 1rem;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .xp-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .xp-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: var(--secondary);
+        }
+        
+        .xp-item {
+            width: 45%;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .xp-item:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+        
+        .xp-item:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        
+        .xp-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+        }
+        
+        .xp-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        
+        .xp-item:nth-child(even)::before {
+            left: -10px;
+        }
+        
+        .xp-period {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .xp-description {
+            margin-top: 0.5rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 3rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-description {
+            margin-bottom: 1rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tag {
+            background-color: var(--light);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: var(--light);
+            border-radius: 4px;
+            margin-top: 0.3rem;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: var(--success);
+            border-radius: 4px;
+        }
+        
+        .achievement-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .xp-timeline::before {
+                left: 20px;
+            }
+            
+            .xp-item {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+            }
+            
+            .xp-item::before {
+                left: -30px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-img">DG</div>
+            <h1>D. Gabriel Sales</h1>
+            <p class="tagline">Desenvolvedor Full Stack | Dev Suporte | Analista de Suporte </p>
+            <div class="contact-info">
+                <div class="contact-item">📧 dwonatagabriel.xyz@gmail.com</div>
+                <div class="contact-item">📱 (92) 99141-3013</div>
+                <div class="contact-item">📍 Joinville/SC | Manaus/AM </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Desenvolvedor com conhecimentos em Python, Flask e desenvolvimento web (Bootstrap e Tailwind CSS),  buscando oportunidade para evoluir como programador full stack. Experiência prévia em infraestrutura de TI e segurança da informação, o que garante visão técnica ampla sobre redes, servidores e boas práticas de segurança em aplicações.</p>
+                <p>Motivado, autodidata e com forte interesse em automação, APIs e integração de sistemas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" style="background-color: #f0f5ff;">
+        <div class="container">
+            <h2 class="section-title">Experiência em Suporte de TI</h2>
+            <div class="xp-timeline">
+                <div class="xp-item">
+                    <h3>Hospital Santo Alberto</h3>
+                    <div class="xp-period">Out/2024 – Out/2025</div>
+                    <p><strong>Cargo:</strong> Assistente de TI</p>
+                    <div class="xp-description">
+                        <p>Apoiei a integração de sistemas internos, automatizando rotinas administrativas e testes de conexão entre módulos ERP.</p>
+                        <p>Desenvolvi scripts em Python para coleta de logs e monitoramento de rede.</p>
+                        <p>Contribuí com a documentação técnica e uma pequena contribuição em análise de requisitos para ajuste de sistemas.</p>
+                    </div>
+                </div>
+                
+                <div class="xp-item">
+                    <h3>Fundação HEMOAM</h3>
+                    <div class="xp-period">Jul/2023 – Mai/2024</div>
+                    <p><strong>Cargo:</strong> Estagiário de TI</p>
+                    <div class="xp-description">
+                        <p>Automatizei tarefas repetitivas com scripts em Python e PowerShell, reduzindo tempo de suporte.</p>
+                        <p>Auxiliei na configuração de ambientes virtuais para testes e deploy de sistemas (GLPI).</p>
+                        <p>Experiência prática com infraestrutura de rede e servidores Linux, base essencial para deploys web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projetos de Desenvolvimento</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">📊</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Interface para instalação de Apps </h3>
+                        <p class="project-description">Interface para facilitar a instalação de .exe e .msi após a formatação de máquinas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PySide6</span>
+               
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🛡️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">CyberEdu</h3>
+                        <p class="project-description">Protótipo de sistema de conscientização em segurança da informação com gamificação.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">📊</div>
+                    <div class="project-content">
+                        <h3 class="project-title">AutoLogs</h3>
+                        <p class="project-description">Script em Python para coleta automática de métricas e geração de relatórios.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scripting</span>
+                            <span class="tech-tag">Automação</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🌐</div>
+                    <div class="project-content">
+                        <h3 class="project-title">KeyPro Chaves </h3>
+                        <p class="project-description">Sistema desenvolvido em HTML, CSS e Flask, hospedado no PythonAnywhere.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background-color: #f0f5ff;">
+        <div class="container">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Desenvolvimento</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            Python
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            HTML/CSS
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            JavaScript
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            Flask
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Infraestrutura & TI</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            Redes TCP/IP
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            Linux
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            VMware
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            Segurança da Informação
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Ferramentas</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            Git/GitHub
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            Docker
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            VS Code
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            Postman
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Cursos e Certificações</h2>
+            <div style="text-align: center;">
+                <span class="achievement-badge">MySQL</span>
+                <span class="achievement-badge">Django Web Framework</span>
+                <span class="achievement-badge">Cisco Cybersecurity Essentials</span>
+                <span class="achievement-badge">Fortinet Operator</span>
+                <span class="achievement-badge">Redes de Computadores</span>
+                <span class="achievement-badge">LGPD</span>
+                <span class="achievement-badge">Scrum Foundation</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Vamos trabalhar juntos?</h3>
+            <p>Entre em contato para oportunidades de colaboração</p>
+            <div class="contact-info" style="margin-top: 1rem;">
+                <div class="contact-item">📧 dwonatagabriel.xyz@gmail.com</div>
+                <div class="contact-item">📱 (92) 99141-3013</div>
+                <div class="contact-item">
+                    <a href="https://linkedin.com/in/dwonatagabriel" style="color: white; text-decoration: none;">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://github.com/dgabrielsales" style="color: white; text-decoration: none;">GitHub</a>
+                </div>
+            </div>
+            <p style="margin-top: 2rem;">&copy; 2025 D. Gabriel. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+    
+        window.addEventListener('load', function() {
+            const skillBars = document.querySelectorAll('.skill-level');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                    bar.style.transition = 'width 1s ease-in-out';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
