@@ -204,15 +204,11 @@
             transform: translateY(-5px);
         }
         
-        .project-img {
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 3rem;
-        }
+       .project-img img {
+         width:100%;
+         height: 70%
+       }
+        
         
         .project-content {
             padding: 1.5rem;
@@ -375,7 +371,9 @@
             <h2 class="section-title">Projetos de Desenvolvimento</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-img">📊</div>
+                    <div class="project-img">
+                        <img src="./img/instalador_interface/instalador .png" alt="Capa do projeto Interface">
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">Interface para instalação de Apps </h3>
                         <p class="project-description">Interface para facilitar a instalação de .exe e .msi após a formatação de máquinas.</p>
@@ -388,7 +386,7 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img">🛡️</div>
+                    <div class="project-img"></div>
                     <div class="project-content">
                         <h3 class="project-title">CyberEdu</h3>
                         <p class="project-description">Protótipo de sistema de conscientização em segurança da informação com gamificação.</p>
@@ -402,7 +400,7 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img">📊</div>
+                    <div class="project-img"></div>
                     <div class="project-content">
                         <h3 class="project-title">AutoLogs</h3>
                         <p class="project-description">Script em Python para coleta automática de métricas e geração de relatórios.</p>
@@ -413,9 +411,11 @@
                         </div>
                     </div>
                 </div>
-                
+<!--no próximo ajuste fazer página separada para cada para por descrição e mais fotos  -->                
                 <div class="project-card">
-                    <div class="project-img">🌐</div>
+                    <div class="project-img">
+                        <img src="./img/key_pro/dashkeypro.png" alt="Capa do projeto Interface">
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">KeyPro Chaves </h3>
                         <p class="project-description">Sistema desenvolvido em HTML, CSS e Flask, hospedado no PythonAnywhere.</p>
@@ -481,27 +481,15 @@
                     <ul class="skill-list">
                         <li class="skill-item">
                             Git/GitHub
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%"></div>
-                            </div>
                         </li>
                         <li class="skill-item">
                             Docker
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 70%"></div>
-                            </div>
                         </li>
                         <li class="skill-item">
                             VS Code
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 90%"></div>
-                            </div>
                         </li>
                         <li class="skill-item">
                             Postman
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%"></div>
-                            </div>
                         </li>
                     </ul>
                 </div>
